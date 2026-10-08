@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy · charge-line</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <h1>Privacy policy</h1>
+  <p class="lede">charge-line · last updated 8 October 2026</p>
+
+  <p>charge-line is a personal, non-commercial proof of concept. It is used only with vehicles its
+  developer owns or is authorised to control, and is not offered to the public.</p>
+
+  <h2>What it accesses</h2>
+  <p>When you sign in with your Tesla account and approve it, charge-line receives OAuth tokens with
+  the scopes <code>openid</code>, <code>offline_access</code>, <code>vehicle_device_data</code> and
+  <code>vehicle_cmds</code>. It uses them only to:</p>
+  <ul>
+    <li>list the vehicles on your account;</li>
+    <li>check whether the vehicle has approved charge-line's key and which command protocol it uses;</li>
+    <li>wake the vehicle; and</li>
+    <li>send a trip you planned — destination and stops — to the vehicle's navigation.</li>
+  </ul>
+
+  <h2>Where data is kept</h2>
+  <p>Tokens are stored only on the computer running charge-line, in a local file. They are not sent
+  to this website or to any server run by the developer. The stops you send go to Tesla to set the
+  vehicle's navigation. If the optional place lookup is used, stop names and coordinates are sent to
+  the Google Places API to find each stop's place ID.</p>
+  <p>charge-line does not sell or share data, and this website uses no cookies or analytics. It is
+  hosted on GitHub Pages; GitHub may log visits as described in the
+  <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
+
+  <h2>Removing access</h2>
+  <p>Remove charge-line's key from the vehicle's <strong>Locks</strong> screen, and revoke its access
+  in your Tesla account's security settings. Deleting the local token file removes the stored tokens.</p>
+
+  <h2>Contact</h2>
+  <p>Via <a href="https://github.com/Suv4o">GitHub</a>.</p>
+
+  <footer><a href="/">charge-line</a> · <a href="/terms.html">Terms of use</a></footer>
+</main>
+</body>
+</html>
