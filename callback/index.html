@@ -10,26 +10,37 @@
 <body>
 <main>
   <h1>Tesla sign-in</h1>
-  <p class="lede">OAuth redirect for charge-line. This page only reads the code from the address bar;
-  it sends nothing anywhere.</p>
+  <p class="lede">OAuth redirect for charge-line. This page only reads the code from the address bar
+  and hands it to the app; it sends nothing anywhere.</p>
   <div id="result"><p>No authorisation code in this URL.</p></div>
   <footer><a href="/">charge-line</a></footer>
 </main>
 <script>
-  // Fallback for when Tesla won't redirect to http://localhost: show the code so it can be passed
-  // to `npm run cli -- login --code <code>`. The code is single use and useless without the app's
-  // client secret.
   const params = new URLSearchParams(location.search);
   const code = params.get("code");
   const error = params.get("error");
+  const state = params.get("state") ?? "";
   const result = document.getElementById("result");
-  if (error) {
-    result.replaceChildren(Object.assign(document.createElement("p"), {
-      textContent: `Tesla returned an error: ${error} ${params.get("error_description") ?? ""}`,
-    }));
+  const paragraph = (text) => Object.assign(document.createElement("p"), { textContent: text });
+
+  if (state.startsWith("app_")) {
+    // Started from the Charge Line iPhone app: hand the code (or Tesla's error) back to it. The app
+    // checks the state matches the sign-in it started, and the code is single use and useless without
+    // the client secret, which only the server holds.
+    const back = new URL("chargeline://tesla-callback");
+    for (const name of ["code", "state", "error", "error_description"]) {
+      const value = params.get(name);
+      if (value) back.searchParams.set(name, value);
+    }
+    const link = Object.assign(document.createElement("a"), { href: back.toString(), textContent: "Open Charge Line" });
+    result.replaceChildren(paragraph("Returning to Charge Line…"), link);
+    location.replace(back.toString());
+  } else if (error) {
+    result.replaceChildren(paragraph(`Tesla returned an error: ${error} ${params.get("error_description") ?? ""}`));
   } else if (code) {
+    // Fallback for the proof of concept when Tesla won't redirect to http://localhost: show the code so
+    // it can be passed to `npm run cli -- login --code <code>`.
     const command = `npm run cli -- login --code ${code}`;
-    const intro = Object.assign(document.createElement("p"), { textContent: "Run this in poc/tesla-send-route:" });
     const pre = document.createElement("pre");
     pre.textContent = command;
     const copy = Object.assign(document.createElement("button"), { type: "button", textContent: "Copy" });
@@ -37,7 +48,7 @@
       await navigator.clipboard.writeText(command);
       copy.textContent = "Copied";
     });
-    result.replaceChildren(intro, pre, copy);
+    result.replaceChildren(paragraph("Run this in poc/tesla-send-route:"), pre, copy);
   }
 </script>
 </body>
