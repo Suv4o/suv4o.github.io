@@ -3,52 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy policy · charge-line</title>
+<title>Privacy policy · Charge Line</title>
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="lede">charge-line · last updated 15 October 2026</p>
+  <p class="lede">Charge Line · last updated 28 October 2026</p>
 
-  <p>charge-line is a personal, non-commercial project: an iPhone app that plans electric-vehicle road
-  trips and sends them to the driver's own Tesla. It is used only with vehicles its developer owns or is
-  authorised to control, and is not offered to the public.</p>
+  <p>Charge Line is an iPhone app, with CarPlay, that plans electric-vehicle road trips in Australia and can
+  send them to the driver's own Tesla. It has no accounts, no advertising and no analytics, and it doesn't
+  sell or share your data.</p>
 
-  <h2>What it accesses</h2>
-  <p>When you sign in with your Tesla account and approve it, charge-line receives OAuth tokens with
-  the scopes <code>openid</code>, <code>offline_access</code>, <code>vehicle_device_data</code> and
-  <code>vehicle_cmds</code>. It uses them only to:</p>
+  <h2>What stays on your iPhone</h2>
+  <p>Your car and battery profile, preferences, saved trips, Home and Work, recent searches and the trip
+  records used to learn how your car drives are stored only on your iPhone. A recent search is only the
+  text you typed. For Home or Work chosen from Google, only Google's place ID is kept, with its location
+  for at most 30 days. The counts of how much of the free plan you've used this month and today are also
+  kept only on your iPhone, in its Keychain, so that reinstalling the app doesn't reset them.</p>
+
+  <h2>What is sent to other services</h2>
+  <p>To plan trips and find chargers, the app sends only what each request needs, when you use it:</p>
+  <ul>
+    <li><strong>Your location</strong>, with your permission, to start a trip from where you are and to find
+    chargers near you on the iPhone or in CarPlay. It is sent with those requests and isn't stored by
+    Charge Line.</li>
+    <li><strong>Google Maps Platform</strong> (Routes API, Places API and the Maps SDK) receives your start,
+    destination and stops to plan the route, the route or your location to find chargers and places to eat,
+    and the text you type when searching for a place. Google's handling is described in the
+    <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+    <li><strong>Open Charge Map</strong> receives the route line or your location, through Charge Line's
+    server, to find more chargers.</li>
+    <li><strong>Amazon Web Services</strong> serves the public elevation data the app downloads for the area
+    of your route, to estimate the energy used on hills.</li>
+    <li>When you tap Navigate or Directions, the stop is handed to Google Maps or Apple Maps on your
+    iPhone.</li>
+  </ul>
+
+  <h2>Tesla</h2>
+  <p>Connecting a Tesla is optional. When you sign in with your Tesla account and approve it, Charge Line
+  receives OAuth tokens with the scopes <code>openid</code>, <code>offline_access</code>,
+  <code>vehicle_device_data</code> and <code>vehicle_cmds</code>. It uses them only to:</p>
   <ul>
     <li>list the vehicles on your account;</li>
-    <li>check whether the vehicle has approved charge-line's key and which command protocol it uses;</li>
+    <li>check whether the vehicle has approved Charge Line's key and which command protocol it uses;</li>
     <li>read the battery level and charge limit, and the live stall counts of nearby Superchargers;</li>
     <li>wake the vehicle, when you ask; and</li>
     <li>send a trip you planned (destination and charging stops) to the vehicle's navigation.</li>
   </ul>
+  <p>Your Tesla tokens are stored only on your iPhone, in its Keychain.</p>
 
-  <h2>Where data is kept</h2>
-  <p>Your Tesla tokens are stored only on your iPhone, in its Keychain. The app's requests to Tesla pass
-  through charge-line's server (hosted on Fly.io in Sydney), which adds the app's credentials and signs
-  commands with charge-line's key. The server stores no tokens, vehicle data or trips; its logs record
-  only the kind of request, its result and how long it took.</p>
-  <p>To plan a trip, the app sends the start (your location) and destination to Google Maps Platform
-  (Routes API and Places API) and the planned route line to Open Charge Map, through the server, to find
-  chargers along it. Your profile (car, battery and preferences) stays on your iPhone. The stops you send
-  go to Tesla to set the vehicle's navigation.</p>
-  <p>charge-line does not sell or share data, and this website uses no cookies or analytics. It is
-  hosted on GitHub Pages; GitHub may log visits as described in the
+  <h2>Charge Line's server</h2>
+  <p>Requests to Tesla and Open Charge Map pass through Charge Line's server, hosted on Fly.io in Sydney,
+  which adds the app's credentials and signs Tesla commands with Charge Line's key. The server stores no
+  tokens, locations, vehicle data or trips; its logs record only the kind of request, its result and how
+  long it took, plus an error message when a request fails.</p>
+
+  <h2>Purchases</h2>
+  <p>Charge Line Premium is bought through Apple's In-App Purchase. Apple handles the payment, and Charge
+  Line never sees your payment details or Apple Account. The app receives from Apple only what it needs to
+  unlock Premium: which plan you bought, when it started and ends, and whether it was refunded. Apple's
+  handling is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+
+  <h2>Removing your data</h2>
+  <ul>
+    <li>Deleting the app removes the data it stores on your iPhone, except Keychain items. Sign out of
+    Tesla in the app's Settings first to delete your Tesla tokens.</li>
+    <li>Remove Charge Line's key from the vehicle's <strong>Locks</strong> screen, and revoke its access in
+    your Tesla account's security settings.</li>
+    <li>Cancel a subscription in Settings › Manage subscription or in your Apple Account settings.</li>
+  </ul>
+
+  <h2>This website</h2>
+  <p>This website uses no cookies or analytics. It is hosted on GitHub Pages; GitHub may log visits as
+  described in the
   <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
-
-  <h2>Removing access</h2>
-  <p>Sign out of Tesla in the app's Settings to delete the tokens from your iPhone. Remove charge-line's
-  key from the vehicle's <strong>Locks</strong> screen, and revoke its access in your Tesla account's
-  security settings.</p>
 
   <h2>Contact</h2>
   <p>Via <a href="https://github.com/Suv4o">GitHub</a>.</p>
 
-  <footer><a href="/">charge-line</a> · <a href="/terms.html">Terms of use</a></footer>
+  <footer><a href="/">Charge Line</a> · <a href="/terms.html">Terms of use</a></footer>
 </main>
 </body>
 </html>
