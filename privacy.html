@@ -9,7 +9,7 @@
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="lede">Charge Line · last updated 29 October 2026</p>
+  <p class="lede">Charge Line · last updated 31 October 2026</p>
 
   <p>Charge Line is an iPhone app, with CarPlay, that plans electric-vehicle road trips in Australia and can
   send them to the driver's own Tesla. It has no accounts, no advertising and no analytics, and it doesn't
@@ -25,15 +25,20 @@
   <h2>What is sent to other services</h2>
   <p>To plan trips and find chargers, the app sends only what each request needs, when you use it:</p>
   <ul>
-    <li><strong>Your location</strong>, with your permission, to start a trip from where you are and to find
-    chargers near you on the iPhone or in CarPlay. It is sent with those requests and isn't stored by
-    Charge Line.</li>
+    <li><strong>Your location</strong>, with your permission, to start a trip from where you are and to show
+    chargers near you on the iPhone or in CarPlay. Chargers are found on the iPhone, in Charge Line's
+    charger list; your location is sent only with the requests below, and isn't stored by Charge Line.</li>
+    <li><strong>Charge Line's charger list</strong>: once a day the app downloads Australia's chargers and
+    the places near them (from OpenStreetMap and Open Charge Map) from Charge Line's server. The download
+    carries no location.</li>
     <li><strong>Google Maps Platform</strong> (Routes API, Places API and the Maps SDK) receives your start,
-    destination and stops to plan the route, the route or your location to find chargers and places to eat,
-    and the text you type when searching for a place. Google's handling is described in the
-    <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+    destination and stops to plan the route, and the text you type when searching for a place. With Premium,
+    it receives the location of your charging stops, or of a charger you open, to check its live
+    availability. If a trip can't be planned with Charge Line's charger list, or before the app has
+    downloaded it, Google also receives the route or your location to find chargers. Google's handling is
+    described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
     <li><strong>Open Charge Map</strong> receives the route line or your location, through Charge Line's
-    server, to find more chargers.</li>
+    server, only before the app has downloaded its charger list.</li>
     <li><strong>Amazon Web Services</strong> serves the public elevation data the app downloads for the area
     of your route, to estimate the energy used on hills.</li>
     <li>When you tap Navigate or Directions, the stop is handed to Google Maps or Apple Maps on your
@@ -55,7 +60,8 @@
 
   <h2>Charge Line's server</h2>
   <p>Requests to Tesla and Open Charge Map pass through Charge Line's server, hosted on Fly.io in Sydney,
-  which adds the app's credentials and signs Tesla commands with Charge Line's key. The server stores no
+  which adds the app's credentials and signs Tesla commands with Charge Line's key. The server also builds
+  the charger list each day from OpenStreetMap and Open Charge Map. The server stores no
   tokens, locations, vehicle data or trips; its logs record only the kind of request, its result and how
   long it took, plus an error message when a request fails.</p>
 
