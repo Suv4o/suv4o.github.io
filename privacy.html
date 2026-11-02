@@ -9,7 +9,7 @@
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="lede">Charge Line · last updated 31 October 2026</p>
+  <p class="lede">Charge Line · last updated 2 November 2026</p>
 
   <p>Charge Line is an iPhone app, with CarPlay, that plans electric-vehicle road trips in Australia and can
   send them to the driver's own Tesla. It has no accounts, no advertising and no analytics, and it doesn't
@@ -20,7 +20,8 @@
   records used to learn how your car drives are stored only on your iPhone. A recent search is only the
   text you typed. For Home or Work chosen from Google, only Google's place ID is kept, with its location
   for at most 30 days. The counts of how much of the free plan you've used this month and today are also
-  kept only on your iPhone, in its Keychain, so that reinstalling the app doesn't reset them.</p>
+  kept only on your iPhone, in its Keychain, so that reinstalling the app doesn't reset them. The app also
+  remembers, for 30 days, which chargers you sent a report about and when, so it can show it.</p>
 
   <h2>What is sent to other services</h2>
   <p>To plan trips and find chargers, the app sends only what each request needs, when you use it:</p>
@@ -30,13 +31,22 @@
     charger list; your location is sent only with the requests below, and isn't stored by Charge Line.</li>
     <li><strong>Charge Line's charger list</strong>: once a day the app downloads Australia's chargers and
     the places near them (from OpenStreetMap and Open Charge Map) from Charge Line's server. The download
-    carries no location.</li>
+    carries no location. When you look at a charger, its photos are loaded from Open Charge Map's
+    servers, and the latest summary of drivers' reports from Charge Line's server.</li>
+    <li><strong>Your reports about a charger</strong>: when you tap "It worked" or "It didn't" on a charger,
+    the app sends Charge Line's server which charger it was, whether charging worked and anything you add:
+    the price per kWh you paid, how you paid, or what went wrong. A report has no account, name or device
+    ID, and no location other than the charger's. Other drivers see only a summary for each charger: when
+    someone last charged there, how many reports there were in the last 30 days, the middle price reported
+    and how drivers paid.</li>
     <li><strong>Google Maps Platform</strong> (Routes API, Places API and the Maps SDK) receives your start,
     destination and stops to plan the route, and the text you type when searching for a place. With Premium,
     it receives the location of your charging stops, or of a charger you open, to check its live
     availability. If a trip can't be planned with Charge Line's charger list, or before the app has
-    downloaded it, Google also receives the route or your location to find chargers. Google's handling is
-    described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+    downloaded it, Google also receives the route or your location to find chargers. When you tap Photos on
+    Google Maps, Google receives the charger's location and network name to find its place, then Google
+    Maps opens on it. Google's handling is described in the
+    <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
     <li><strong>Open Charge Map</strong> receives the route line or your location, through Charge Line's
     server, only before the app has downloaded its charger list.</li>
     <li><strong>Amazon Web Services</strong> serves the public elevation data the app downloads for the area
@@ -63,7 +73,9 @@
   which adds the app's credentials and signs Tesla commands with Charge Line's key. The server also builds
   the charger list each day from OpenStreetMap and Open Charge Map. The server stores no
   tokens, locations, vehicle data or trips; its logs record only the kind of request, its result and how
-  long it took, plus an error message when a request fails.</p>
+  long it took, plus an error message when a request fails. It keeps drivers' reports (above) for 180
+  days. With each report it keeps a one-way code made from the internet address the report came from,
+  so that abuse, such as a flood of made-up reports, can be stopped; the address itself isn't kept.</p>
 
   <h2>Purchases</h2>
   <p>Charge Line Premium is bought through Apple's In-App Purchase. Apple handles the payment, and Charge
@@ -78,6 +90,8 @@
     <li>Remove Charge Line's key from the vehicle's <strong>Locks</strong> screen, and revoke its access in
     your Tesla account's security settings.</li>
     <li>Cancel a subscription in Settings › Manage subscription or in your Apple Account settings.</li>
+    <li>Reports about chargers aren't linked to you. To have one removed, email us with the charger and
+    when you sent it.</li>
   </ul>
 
   <h2>This website</h2>
