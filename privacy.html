@@ -9,7 +9,7 @@
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="lede">Charge Line · last updated 2 November 2026</p>
+  <p class="lede">Charge Line · last updated 3 November 2026</p>
 
   <p>Charge Line is an iPhone app, with CarPlay, that plans electric-vehicle road trips in Australia and can
   send them to the driver's own Tesla. It has no accounts, no advertising and no analytics, and it doesn't
@@ -49,6 +49,10 @@
     <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
     <li><strong>Open Charge Map</strong> receives the route line or your location, through Charge Line's
     server, only before the app has downloaded its charger list.</li>
+    <li><strong>Weather on the way</strong> (Premium): when you plan a trip, the app sends Charge Line's
+    server points along the route, about every 50 km, and the hours you'll be driving. The server asks
+    MET Norway (the Norwegian Meteorological Institute) for the forecast at each point, rounded to about
+    10 km. MET Norway sees only Charge Line's server, never your iPhone.</li>
     <li><strong>Amazon Web Services</strong> serves the public elevation data the app downloads for the area
     of your route, to estimate the energy used on hills.</li>
     <li>When you tap Navigate or Directions, the stop is handed to Google Maps or Apple Maps on your
@@ -71,7 +75,9 @@
   <h2>Charge Line's server</h2>
   <p>Requests to Tesla and Open Charge Map pass through Charge Line's server, hosted on Fly.io in Sydney,
   which adds the app's credentials and signs Tesla commands with Charge Line's key. The server also builds
-  the charger list each day from OpenStreetMap and Open Charge Map. The server stores no
+  the charger list each day from OpenStreetMap and Open Charge Map, and asks MET Norway for the weather on
+  the way. It keeps each forecast in memory for about half an hour, by place rounded to about 10 km, so
+  drivers on the same road share it; it isn't linked to anyone. The server stores no
   tokens, locations, vehicle data or trips; its logs record only the kind of request, its result and how
   long it took, plus an error message when a request fails. It keeps drivers' reports (above) for 180
   days. With each report it keeps a one-way code made from the internet address the report came from,
